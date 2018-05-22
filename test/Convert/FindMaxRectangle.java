@@ -113,7 +113,7 @@ public class FindMaxRectangle {
             			//System.out.println(onlyGeo[0]);
             			String[] longLat = onlyGeo[0].split(",");
             			
-                        System.out.println(longLat.length + ":" + longLat[0] + " " + longLat[1]+ " " + longLat[(longLat.length-2)]+ " " + longLat[(longLat.length-3)]);
+                    System.out.println(longLat.length + ":" + longLat[0] + " " + longLat[1]+ " " + longLat[(longLat.length-2)]+ " " + longLat[(longLat.length-3)]);
 
             			// find the rectangle of district
             			Double maxLongitude = Double.parseDouble(longLat[0]);
@@ -144,7 +144,7 @@ public class FindMaxRectangle {
             			district.setMinLat(minLatitude);
             			district.setMinLong(minLongitude);
             			
-                        surfaceArea.add(district);
+                     surfaceArea.add(district);
             			
             		}
             		count ++;

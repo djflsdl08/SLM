@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Date;
 import model.Location;
 import account.Database;
 
@@ -164,5 +166,34 @@ public class LocationDAO {
 			close(conn, pstmt, rs);
 		}
 		return clients;
+	}
+	
+	public int getUsersCountByDistrict(String district, String date) {
+		int count = 0;
+		
+		//select * from locationdata where time > DATE_SUB("20180517102530", INTERVAL 30 SECOND);
+		
+		try {
+			dbConnect();
+			String sql = "select client_id from locationdata where district like ? "
+					+ "and time >= DATE_SUB(?, INTERVAL 30 SECOND) and time <= STR_TO_DATE(?,\"%Y%m%d%k%i%s\")";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, district + '%');
+			pstmt.setString(2, date);
+			pstmt.setString(3, date);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				count++;
+			}
+			
+		} catch(Exception e) {
+			System.out.println("SQLException: " + e.getMessage());
+		} finally {
+			close(conn, pstmt, rs);
+		}
+		
+		System.out.println(count);
+		return count;
 	}
 }

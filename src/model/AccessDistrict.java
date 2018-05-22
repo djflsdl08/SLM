@@ -76,7 +76,6 @@ class SurfaceAreaOfDistrict {
 		//System.out.println(surfaceAreaOfSpecificDistrict);
 		//System.out.println();
 		//System.out.println(surfaceAreaOfDistrict);
-
 	}
 
 }

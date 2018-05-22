@@ -1,5 +1,6 @@
 package main;
 
+import dao2.LocationDAO;
 import model.AccessDistrict;
 import mqtt.MqttCallbackClient;
 
@@ -19,6 +20,8 @@ public class Main {
 		long end = System.currentTimeMillis();
 
 		System.out.println( "\n>> 실행 시간 : " + ( end - start )/1000.0 );
+		
+		LocationDAO.getInstance().getUsersCountByDistrict("Seongbuk-gu", "20180517102413");
 				
 	}
 

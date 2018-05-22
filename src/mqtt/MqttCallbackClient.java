@@ -317,10 +317,10 @@ public class MqttCallbackClient implements MqttCallback{
 		
 		FindLocation fl = new FindLocation();
 		fl.closestRectangle(location);
-		fl.getLocation(); //=> location에 데이터 추가
+		//fl.getLocation(); //=> location에 데이터 추가
 		
 		
-		LocationDAO.getInstance().insertLocation(location);
+		//LocationDAO.getInstance().insertLocation(location);
 
 		/*Double[] location = new Double[2];
         String mes = new String(message.getPayload());
